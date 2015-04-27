@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:p="http://primefaces.org/ui">
+    <h:body>
+        <p:dialog header="Login" visible="true" closable="false" draggable="false" resizable="false" width="420">
+            <center>
+                <h:outputText value="Usuário ou senha incorretos!" rendered="#{param.erro}" style="color: darkred"/>
+            </center>
+            <form role="form" method="post"
+                  action="${request.contextPath}/j_spring_security_check">
+                <h:panelGrid columns="2" cellpadding="5">
+                    <h:outputLabel for="j_username" value="Username: *" />
+                    <h:inputText id="j_username" required="true" pt:placeholder="Digite seu usuário"/>
+                    <h:outputLabel for="j_password" value="Password: * " />
+                    <h:inputSecret id="j_password" required="true" pt:placeholder="Digite sua senha"/>
+                    <h:commandButton value="Login"/>
+                </h:panelGrid>
+            </form>
+        </p:dialog>
+
+    </h:body>
+</html>
